@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,9 +27,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.lsjwzh.R;
-import com.lsjwzh.adapter.GenericRecyclerViewAdapter;
-import com.lsjwzh.adapter.OnRecyclerViewItemClickListener;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.adapter.GenericRecyclerViewAdapter;
+import com.github.pmcoffee.android.recyclerpagerdemo.adapter.OnRecyclerViewItemClickListener;
 
 
 public class MainActivity extends AppCompatActivity {

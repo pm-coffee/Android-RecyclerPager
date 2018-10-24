@@ -21,7 +21,7 @@
     <data>
         <variable
             name="viewData"
-            type="com.lsjwzh.widget.recyclerviewpagerdeomo.Cheeses"/>
+            type="com.github.pmcoffee.android.recyclerpagerdemo.widget.Cheeses"/>
     </data>
     
     <LinearLayout

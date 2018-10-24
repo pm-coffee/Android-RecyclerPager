@@ -1,12 +1,12 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.lsjwzh.R;
-import com.lsjwzh.databinding.TmpBinding;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.databinding.TmpBinding;
 
 import java.util.ArrayList;
 import java.util.List;

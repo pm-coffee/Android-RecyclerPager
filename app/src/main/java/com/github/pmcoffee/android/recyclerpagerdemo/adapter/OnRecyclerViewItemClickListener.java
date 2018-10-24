@@ -1,4 +1,4 @@
-package com.lsjwzh.adapter;
+package com.github.pmcoffee.android.recyclerpagerdemo.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

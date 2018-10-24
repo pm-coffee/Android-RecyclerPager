@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.lsjwzh.BuildConfig;
-import com.lsjwzh.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.BuildConfig;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 

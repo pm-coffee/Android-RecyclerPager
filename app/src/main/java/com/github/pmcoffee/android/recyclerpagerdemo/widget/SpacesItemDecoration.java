@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

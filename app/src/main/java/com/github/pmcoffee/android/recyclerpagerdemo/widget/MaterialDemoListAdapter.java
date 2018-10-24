@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.databinding.DataBindingUtil;
@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.lsjwzh.R;
-import com.lsjwzh.databinding.PagerItemBinding;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.databinding.PagerItemBinding;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 

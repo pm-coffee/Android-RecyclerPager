@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -36,7 +35,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lsjwzh.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.squareup.picasso.Picasso;
 
 public class CheeseListFragment extends Fragment {

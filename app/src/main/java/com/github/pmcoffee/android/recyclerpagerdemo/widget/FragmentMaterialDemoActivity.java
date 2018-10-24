@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import java.util.LinkedHashMap;
 
@@ -11,8 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import com.lsjwzh.R;
 import com.github.pmcoffee.android.recyclerpager.FragmentStatePagerAdapter;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 

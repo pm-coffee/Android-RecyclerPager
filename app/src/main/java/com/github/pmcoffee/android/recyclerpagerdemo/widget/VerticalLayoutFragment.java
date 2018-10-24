@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lsjwzh.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
 
 public class VerticalLayoutFragment extends Fragment {

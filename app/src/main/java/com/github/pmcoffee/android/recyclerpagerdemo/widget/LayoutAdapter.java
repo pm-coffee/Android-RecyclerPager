@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +27,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.lsjwzh.R.id;
-import static com.lsjwzh.R.layout;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
+
 
 public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleViewHolder> {
     private static final int DEFAULT_ITEM_COUNT = 100;
@@ -43,7 +43,7 @@ public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleView
 
         public SimpleViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(id.title);
+            title = (TextView) view.findViewById(R.id.title);
         }
     }
 
@@ -74,7 +74,7 @@ public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleView
 
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(mContext).inflate(layout.item, parent, false);
+        final View view = LayoutInflater.from(mContext).inflate(R.layout.item, parent, false);
         return new SimpleViewHolder(view);
     }
 

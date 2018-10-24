@@ -1,4 +1,4 @@
-package com.lsjwzh.adapter;
+package com.github.pmcoffee.android.recyclerpagerdemo.adapter;
 
 public interface OnItemChangedListener {
 

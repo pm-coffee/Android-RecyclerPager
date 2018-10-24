@@ -1,50 +1,34 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
-import com.lsjwzh.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
-import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
-public class SingleFlingPagerActivity extends Activity {
+public class VerticalPagerActivity extends Activity {
     protected RecyclerViewPager mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.demo_single_fling_pager);
+        setContentView(R.layout.demo_vertical_viewpager);
         initViewPager();
-    
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-    
-        TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, new TabLayoutSupport.ViewPagerTabLayoutAdapter() {
-            @Override
-            public String getPageTitle(int position) {
-                return ""+position;
-            }
-    
-            @Override
-            public int getItemCount() {
-                return mRecyclerView.getWrapperAdapter().getItemCount();
-            }
-        });
     }
 
     protected void initViewPager() {
-        mRecyclerView = findViewById(R.id.viewpager);
+        mRecyclerView = (RecyclerViewPager) findViewById(R.id.viewpager);
+
         mRecyclerView.setAdapter(new LayoutAdapter(this, mRecyclerView));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLongClickable(true);
+
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
-//                updateState(scrollState);
+
             }
 
             @Override
@@ -53,37 +37,28 @@ public class SingleFlingPagerActivity extends Activity {
                 int childCount = mRecyclerView.getChildCount();
                 int width = mRecyclerView.getChildAt(0).getWidth();
                 int padding = (mRecyclerView.getWidth() - width) / 2;
-//                mCountText.setText("Count: " + childCount);
 
                 for (int j = 0; j < childCount; j++) {
                     View v = recyclerView.getChildAt(j);
                     //往左 从 padding 到 -(v.getWidth()-padding) 的过程中，由大到小
                     float rate = 0;
-                    ;
-                    if (v.getLeft() <= padding) {
-                        if (v.getLeft() >= padding - v.getWidth()) {
-                            rate = (padding - v.getLeft()) * 1f / v.getWidth();
+                    if (v.getTop() <= padding) {
+                        if (v.getTop() >= padding - v.getHeight()) {
+                            rate = (padding - v.getTop()) * 1f / v.getHeight();
                         } else {
                             rate = 1;
                         }
-                        v.setScaleY(1 - rate * 0.1f);
                         v.setScaleX(1 - rate * 0.1f);
-
+                        v.setScaleY(1 - rate * 0.1f);
                     } else {
-                        //往右 从 padding 到 recyclerView.getWidth()-padding 的过程中，由大到小
-                        if (v.getLeft() <= recyclerView.getWidth() - padding) {
-                            rate = (recyclerView.getWidth() - padding - v.getLeft()) * 1f / v.getWidth();
+                        //往右 从 padding 到 recyclerView.getHeight()-padding 的过程中，由大到小
+                        if (v.getTop() <= recyclerView.getHeight() - padding) {
+                            rate = (recyclerView.getHeight() - padding - v.getTop()) * 1f / v.getHeight();
                         }
-                        v.setScaleY(0.9f + rate * 0.1f);
                         v.setScaleX(0.9f + rate * 0.1f);
+                        v.setScaleY(0.9f + rate * 0.1f);
                     }
                 }
-            }
-        });
-        mRecyclerView.addOnPageChangedListener(new RecyclerViewPager.OnPageChangedListener() {
-            @Override
-            public void OnPageChanged(int oldPosition, int newPosition) {
-                Log.d("test", "oldPosition:" + oldPosition + " newPosition:" + newPosition);
             }
         });
 
@@ -92,26 +67,17 @@ public class SingleFlingPagerActivity extends Activity {
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 if (mRecyclerView.getChildCount() < 3) {
                     if (mRecyclerView.getChildAt(1) != null) {
-                        if (mRecyclerView.getCurrentPosition() == 0) {
-                            View v1 = mRecyclerView.getChildAt(1);
-                            v1.setScaleY(0.9f);
-                            v1.setScaleX(0.9f);
-                        } else {
-                            View v1 = mRecyclerView.getChildAt(0);
-                            v1.setScaleY(0.9f);
-                            v1.setScaleX(0.9f);
-                        }
+                        View v1 = mRecyclerView.getChildAt(1);
+                        v1.setScaleY(0.9f);
                     }
                 } else {
                     if (mRecyclerView.getChildAt(0) != null) {
                         View v0 = mRecyclerView.getChildAt(0);
                         v0.setScaleY(0.9f);
-                        v0.setScaleX(0.9f);
                     }
                     if (mRecyclerView.getChildAt(2) != null) {
                         View v2 = mRecyclerView.getChildAt(2);
                         v2.setScaleY(0.9f);
-                        v2.setScaleX(0.9f);
                     }
                 }
 

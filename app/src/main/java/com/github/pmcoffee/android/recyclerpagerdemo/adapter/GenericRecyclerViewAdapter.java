@@ -1,4 +1,4 @@
-package com.lsjwzh.adapter;
+package com.github.pmcoffee.android.recyclerpagerdemo.adapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lsjwzh" >
+    package="com.github.pmcoffee.android.recyclerpagerdemo" >
 
     <application
-        android:name=".MyApp"
+        android:name="com.github.pmcoffee.android.recyclerpagerdemo.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".widget.recyclerviewpagerdeomo.MainActivity"
+            android:name=".widget.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,21 +18,21 @@
             </intent-filter>
         </activity>
         <activity
-          android:name=".widget.recyclerviewpagerdeomo.SingleFlingPagerActivity" >
+          android:name=".widget.SingleFlingPagerActivity" >
         </activity>
         <activity
-          android:name=".widget.recyclerviewpagerdeomo.VerticalPagerActivity" >
+          android:name=".widget.VerticalPagerActivity" >
         </activity>
         <activity
-          android:name=".widget.recyclerviewpagerdeomo.FragmentMaterialDemoActivity"
+          android:name=".widget.FragmentMaterialDemoActivity"
           android:theme="@style/Theme.DesignDemo">
         </activity>
         <activity
-            android:name=".widget.recyclerviewpagerdeomo.MaterialDemoActivity"
+            android:name=".widget.MaterialDemoActivity"
             android:theme="@style/Theme.DesignDemo">
         </activity>
         <activity
-            android:name=".widget.recyclerviewpagerdeomo.TmpActivity"/>
+            android:name=".widget.TmpActivity"/>
     </application>
 
 </manifest>

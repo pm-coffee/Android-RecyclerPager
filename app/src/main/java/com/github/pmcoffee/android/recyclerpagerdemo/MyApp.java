@@ -1,4 +1,4 @@
-package com.lsjwzh;
+package com.github.pmcoffee.android.recyclerpagerdemo;
 
 import android.app.Application;
 import android.content.Context;

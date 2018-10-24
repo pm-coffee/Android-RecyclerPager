@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

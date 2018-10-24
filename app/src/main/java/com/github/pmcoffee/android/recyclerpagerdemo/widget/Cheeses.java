@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
-import com.lsjwzh.R;
+
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.lsjwzh.util;
+package com.github.pmcoffee.android.recyclerpagerdemo.util;
 
 import android.databinding.BindingAdapter;
 import android.net.Uri;

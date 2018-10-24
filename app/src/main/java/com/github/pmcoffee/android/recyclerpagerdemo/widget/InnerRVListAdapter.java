@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpagerdeomo;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
@@ -10,8 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.lsjwzh.R;
-import com.lsjwzh.databinding.ListItemBinding;
+import com.github.pmcoffee.android.recyclerpagerdemo.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.databinding.ListItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;
