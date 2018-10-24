@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpager;
+package com.github.pmcoffee.android.recyclerpager;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

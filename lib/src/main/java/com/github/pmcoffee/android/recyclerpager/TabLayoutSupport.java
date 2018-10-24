@@ -1,12 +1,12 @@
-package com.lsjwzh.widget.recyclerviewpager;
-
-import java.lang.ref.WeakReference;
+package com.github.pmcoffee.android.recyclerpager;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+
+import java.lang.ref.WeakReference;
 
 public class TabLayoutSupport {
     

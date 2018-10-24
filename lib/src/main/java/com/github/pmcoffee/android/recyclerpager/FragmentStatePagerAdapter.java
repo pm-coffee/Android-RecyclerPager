@@ -1,4 +1,4 @@
-package com.lsjwzh.widget.recyclerviewpager;
+package com.github.pmcoffee.android.recyclerpager;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -16,6 +16,7 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 /**
  * Implementation of {@link android.support.v4.view.PagerAdapter} that

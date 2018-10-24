@@ -16,7 +16,7 @@
 	
 	</android.support.design.widget.TabLayout>
 	
-	<com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
+	<com.github.pmcoffee.android.recyclerpager.RecyclerViewPager
 		android:id="@+id/viewpager"
 		android:layout_width="0dp"
 		android:layout_height="0dp"

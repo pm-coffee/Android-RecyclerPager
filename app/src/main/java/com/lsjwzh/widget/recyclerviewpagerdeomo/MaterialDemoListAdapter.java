@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.lsjwzh.R;
 import com.lsjwzh.databinding.PagerItemBinding;
-import com.lsjwzh.widget.recyclerviewpager.TabLayoutSupport;
+import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 
 public class MaterialDemoListAdapter extends ListAdapter<PagerItemViewModel, MaterialDemoListAdapter.ViewHolder>

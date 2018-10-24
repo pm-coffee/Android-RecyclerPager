@@ -12,9 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.lsjwzh.R;
-import com.lsjwzh.widget.recyclerviewpager.FragmentStatePagerAdapter;
-import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
-import com.lsjwzh.widget.recyclerviewpager.TabLayoutSupport;
+import com.github.pmcoffee.android.recyclerpager.FragmentStatePagerAdapter;
+import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 public class FragmentMaterialDemoActivity extends AppCompatActivity {
     protected RecyclerViewPager mRecyclerView;

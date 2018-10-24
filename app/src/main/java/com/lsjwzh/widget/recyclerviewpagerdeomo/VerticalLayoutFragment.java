@@ -29,7 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lsjwzh.R;
-import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
 
 public class VerticalLayoutFragment extends Fragment {
     private RecyclerViewPager mRecyclerView;

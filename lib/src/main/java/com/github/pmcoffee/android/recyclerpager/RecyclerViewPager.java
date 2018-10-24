@@ -1,15 +1,13 @@
-package com.lsjwzh.widget.recyclerviewpager;
+package com.github.pmcoffee.android.recyclerpager;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
+
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,12 +2,11 @@ package com.lsjwzh.widget.recyclerviewpagerdeomo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.lsjwzh.R;
-import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
 
 public class VerticalPagerActivity extends Activity {
     protected RecyclerViewPager mRecyclerView;

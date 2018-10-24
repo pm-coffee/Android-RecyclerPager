@@ -8,8 +8,8 @@ import android.util.Log;
 
 import com.lsjwzh.BuildConfig;
 import com.lsjwzh.R;
-import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
-import com.lsjwzh.widget.recyclerviewpager.TabLayoutSupport;
+import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 public class MaterialDemoActivity extends AppCompatActivity {
 	private MaterialDemoViewModel viewModel;

@@ -64,7 +64,7 @@ It is easy to setup like a Recycler List View.
 #### xml:
 
 ```xml
-<com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
+<com.github.pmcoffee.android.recyclerpager.RecyclerViewPager
     android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

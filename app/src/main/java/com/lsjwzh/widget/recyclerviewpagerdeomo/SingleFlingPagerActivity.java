@@ -3,14 +3,13 @@ package com.lsjwzh.widget.recyclerviewpagerdeomo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import com.lsjwzh.R;
-import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
-import com.lsjwzh.widget.recyclerviewpager.TabLayoutSupport;
+import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 public class SingleFlingPagerActivity extends Activity {
     protected RecyclerViewPager mRecyclerView;
