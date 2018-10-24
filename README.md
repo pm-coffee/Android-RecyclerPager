@@ -1,4 +1,9 @@
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RecyclerViewPager-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1622)
+# Android-RecyclerPager
+
+This will be a library based on [lsjwzh/RecyclerViewPager](https://github.com/lsjwzh/RecyclerViewPager).
+
+````markdown:based-md
+
 # RecyclerViewPager
 A ViewPager implemention base on RecyclerView. Support fling operation like gallary.
 
@@ -182,3 +187,5 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+````
