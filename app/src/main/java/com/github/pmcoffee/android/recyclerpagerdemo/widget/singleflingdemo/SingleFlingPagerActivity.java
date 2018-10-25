@@ -8,12 +8,12 @@ import android.util.Log;
 import android.view.View;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
-import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.RecyclerPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.LayoutAdapter;
 
 public class SingleFlingPagerActivity extends Activity {
-    protected RecyclerViewPager mRecyclerView;
+    protected RecyclerPager mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

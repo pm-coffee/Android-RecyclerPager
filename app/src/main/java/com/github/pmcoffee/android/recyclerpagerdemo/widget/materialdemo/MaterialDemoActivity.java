@@ -8,12 +8,12 @@ import android.util.Log;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.BuildConfig;
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
-import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.RecyclerPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 public class MaterialDemoActivity extends AppCompatActivity {
 	private MaterialDemoViewModel viewModel;
-	protected RecyclerViewPager mRecyclerView;
+	protected RecyclerPager mRecyclerView;
 	private TabLayout tabLayout;
 	private MaterialDemoListAdapter mAdapter;
 	

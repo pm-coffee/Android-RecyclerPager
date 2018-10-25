@@ -6,11 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
-import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.RecyclerPager;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.LayoutAdapter;
 
 public class VerticalPagerActivity extends Activity {
-    protected RecyclerViewPager mRecyclerView;
+    protected RecyclerPager mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,12 +12,12 @@ import android.util.Log;
 
 import com.github.pmcoffee.android.recyclerpager.FragmentStatePagerAdapter;
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
-import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
+import com.github.pmcoffee.android.recyclerpager.RecyclerPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.SpacesItemDecoration;
 
 public class FragmentMaterialDemoActivity extends AppCompatActivity {
-    protected RecyclerViewPager mRecyclerView;
+    protected RecyclerPager mRecyclerView;
     private FragmentsAdapter mAdapter;
 
     @Override
