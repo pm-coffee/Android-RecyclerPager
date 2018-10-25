@@ -1,3 +1,6 @@
+[![](https://jitpack.io/v/pm-coffee/Android-RecyclerPager.svg)](https://jitpack.io/#pm-coffee/Android-RecyclerPager)
+
+
 # Android-RecyclerPager
 
 * This library is a library for using RecyclerView like ViewPager
