@@ -43,7 +43,7 @@ public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleView
 
         public SimpleViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
+            title = view.findViewById(R.id.title);
         }
     }
 
@@ -83,12 +83,7 @@ public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleView
         holder.title.setText(mItems.get(position).toString());
 
         final View itemView = holder.itemView;
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "", Toast.LENGTH_SHORT).show();
-            }
-        });
+        itemView.setOnClickListener(v -> Toast.makeText(mContext, "", Toast.LENGTH_SHORT).show());
         final int itemId = mItems.get(position);
     }
 

@@ -82,12 +82,7 @@ public class MainActivity extends AppCompatActivity {
     class DemoListAdapter extends GenericRecyclerViewAdapter<DemoItem, DemoListItemViewHolder> {
 
         DemoListAdapter() {
-            setOnItemClickListener(new OnRecyclerViewItemClickListener<DemoListItemViewHolder>() {
-                @Override
-                public void onItemClick(View view, int position, DemoListItemViewHolder viewHolder) {
-                    getItem(position).onClick();
-                }
-            });
+            setOnItemClickListener((view, position, viewHolder) -> getItem(position).onClick());
         }
 
         @Override
@@ -120,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         public DemoListItemViewHolder(View itemView) {
             super(itemView);
-            mTextView = (TextView) itemView.findViewById(R.id.text);
+            mTextView = itemView.findViewById(R.id.text);
         }
     }
 

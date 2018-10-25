@@ -33,7 +33,6 @@ public class MaterialDemoActivity extends AppCompatActivity {
 	}
 	
 	private void initTabLayout() {
-		//给TabLayout增加Tab, 并关联ViewPager
 		tabLayout = findViewById(R.id.tabs);
 		TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter);
 	}

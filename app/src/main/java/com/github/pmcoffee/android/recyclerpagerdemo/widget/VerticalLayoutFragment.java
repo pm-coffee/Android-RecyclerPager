@@ -58,7 +58,7 @@ public class VerticalLayoutFragment extends Fragment {
         mToast = Toast.makeText(activity, "", Toast.LENGTH_SHORT);
         mToast.setGravity(Gravity.CENTER, 0, 0);
 
-        mRecyclerView = (RecyclerViewPager) view.findViewById(R.id.viewpager);
+        mRecyclerView = view.findViewById(R.id.viewpager);
 
         LinearLayoutManager layout = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(layout);
@@ -66,10 +66,10 @@ public class VerticalLayoutFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLongClickable(true);
 
-        mPositionText = (TextView) view.getRootView().findViewById(R.id.position);
-        mCountText = (TextView) view.getRootView().findViewById(R.id.count);
+        mPositionText = view.getRootView().findViewById(R.id.position);
+        mCountText = view.getRootView().findViewById(R.id.count);
 
-        mStateText = (TextView) view.getRootView().findViewById(R.id.state);
+        mStateText = view.getRootView().findViewById(R.id.state);
         updateState(RecyclerView.SCROLL_STATE_IDLE);
 
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -88,7 +88,6 @@ public class VerticalLayoutFragment extends Fragment {
 
                 for (int j = 0; j < childCount; j++) {
                     View v = recyclerView.getChildAt(j);
-                    //往左 从 padding 到 -(v.getWidth()-padding) 的过程中，由大到小
                     float rate = 0;
                     if (v.getLeft() <= padding) {
                         if (v.getLeft() >= padding - v.getWidth()) {
@@ -98,7 +97,6 @@ public class VerticalLayoutFragment extends Fragment {
                         }
                         v.setScaleY(1 - rate * 0.1f);
                     } else {
-                        //往右 从 padding 到 recyclerView.getWidth()-padding 的过程中，由大到小
                         if (v.getLeft() <= recyclerView.getWidth() - padding) {
                             rate = (recyclerView.getWidth() - padding - v.getLeft()) * 1f / v.getWidth();
                         }
@@ -108,26 +106,23 @@ public class VerticalLayoutFragment extends Fragment {
             }
         });
 
-        mRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                if (mRecyclerView.getChildCount() < 3) {
-                    if (mRecyclerView.getChildAt(1) != null) {
-                        View v1 = mRecyclerView.getChildAt(1);
-                        v1.setScaleY(0.9f);
-                    }
-                } else {
-                    if (mRecyclerView.getChildAt(0) != null) {
-                        View v0 = mRecyclerView.getChildAt(0);
-                        v0.setScaleY(0.9f);
-                    }
-                    if (mRecyclerView.getChildAt(2) != null) {
-                        View v2 = mRecyclerView.getChildAt(2);
-                        v2.setScaleY(0.9f);
-                    }
+        mRecyclerView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+            if (mRecyclerView.getChildCount() < 3) {
+                if (mRecyclerView.getChildAt(1) != null) {
+                    View v1 = mRecyclerView.getChildAt(1);
+                    v1.setScaleY(0.9f);
                 }
-
+            } else {
+                if (mRecyclerView.getChildAt(0) != null) {
+                    View v0 = mRecyclerView.getChildAt(0);
+                    v0.setScaleY(0.9f);
+                }
+                if (mRecyclerView.getChildAt(2) != null) {
+                    View v2 = mRecyclerView.getChildAt(2);
+                    v2.setScaleY(0.9f);
+                }
             }
+
         });
     }
 

@@ -24,14 +24,13 @@ public class FragmentMaterialDemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo_material);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        setSupportActionBar(findViewById(R.id.toolbar));
         initViewPager();
         initTabLayout();
 
     }
 
     private void initTabLayout() {
-        //给TabLayout增加Tab, 并关联ViewPager
         TabLayout tabLayout = findViewById(R.id.tabs);
         TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter);
     }
@@ -46,14 +45,7 @@ public class FragmentMaterialDemoActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLongClickable(true);
         mRecyclerView.addItemDecoration(new SpacesItemDecoration(50, mRecyclerView.getAdapter().getItemCount()));
-//        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper(){};
-//        pagerSnapHelper.attachToRecyclerView(mRecyclerView);
-        mRecyclerView.addOnPageChangedListener(new RecyclerViewPager.OnPageChangedListener() {
-            @Override
-            public void OnPageChanged(int oldPosition, int newPosition) {
-                Log.d("test", "oldPosition:" + oldPosition + " newPosition:" + newPosition);
-            }
-        });
+        mRecyclerView.addOnPageChangedListener((oldPosition, newPosition) -> Log.d("test", "oldPosition:" + oldPosition + " newPosition:" + newPosition));
 
     }
 
