@@ -28,7 +28,7 @@
           android:theme="@style/Theme.DesignDemo">
         </activity>
         <activity
-            android:name=".widget.MaterialDemoActivity"
+            android:name=".widget.materialdemo.MaterialDemoActivity"
             android:theme="@style/Theme.DesignDemo">
         </activity>
         <activity

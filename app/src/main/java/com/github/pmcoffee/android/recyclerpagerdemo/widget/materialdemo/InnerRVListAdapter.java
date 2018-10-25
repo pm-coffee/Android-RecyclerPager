@@ -1,4 +1,4 @@
-package com.github.pmcoffee.android.recyclerpagerdemo.widget;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget.materialdemo;
 
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;

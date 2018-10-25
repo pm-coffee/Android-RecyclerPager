@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpagerdemo.databinding.TmpBinding;
 import com.github.pmcoffee.android.recyclerpagerdemo.model.Cheeses;
+import com.github.pmcoffee.android.recyclerpagerdemo.widget.materialdemo.InnerRVListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
