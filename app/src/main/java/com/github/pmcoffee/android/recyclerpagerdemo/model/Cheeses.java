@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.pmcoffee.android.recyclerpagerdemo.widget;
+package com.github.pmcoffee.android.recyclerpagerdemo.model;
 
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;

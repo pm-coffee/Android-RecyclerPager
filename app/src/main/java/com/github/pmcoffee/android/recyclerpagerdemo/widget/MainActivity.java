@@ -29,7 +29,6 @@ import android.widget.TextView;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpagerdemo.adapter.GenericRecyclerViewAdapter;
-import com.github.pmcoffee.android.recyclerpagerdemo.adapter.OnRecyclerViewItemClickListener;
 
 
 public class MainActivity extends AppCompatActivity {

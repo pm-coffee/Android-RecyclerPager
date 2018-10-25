@@ -2,6 +2,8 @@ package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
 import android.arch.lifecycle.MutableLiveData;
 
+import com.github.pmcoffee.android.recyclerpagerdemo.model.Cheeses;
+
 import java.util.ArrayList;
 import java.util.List;
 

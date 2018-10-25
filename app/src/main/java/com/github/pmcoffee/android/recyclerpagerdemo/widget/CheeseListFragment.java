@@ -36,6 +36,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
+import com.github.pmcoffee.android.recyclerpagerdemo.model.Cheeses;
 import com.squareup.picasso.Picasso;
 
 public class CheeseListFragment extends Fragment {

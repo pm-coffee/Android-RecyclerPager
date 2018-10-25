@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpagerdemo.databinding.ListItemBinding;
+import com.github.pmcoffee.android.recyclerpagerdemo.model.Cheeses;
 
 import java.util.ArrayList;
 import java.util.List;
