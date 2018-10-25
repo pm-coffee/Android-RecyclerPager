@@ -2,7 +2,7 @@
 
 <resources>
 
-    <declare-styleable name="RecyclerViewPager">
+    <declare-styleable name="RecyclerPager">
         <attr name="rvp_triggerOffset" format="float" />
         <attr name="rvp_flingFactor" format="float" />
         <attr name="rvp_singlePageFling" format="boolean" />

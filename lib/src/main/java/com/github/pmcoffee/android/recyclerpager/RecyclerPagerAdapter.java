@@ -5,17 +5,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * RecyclerViewPagerAdapter </br>
+ * RecyclerPagerAdapter </br>
  * Adapter wrapper.
  *
  * @author Green
  */
-public class RecyclerViewPagerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
-    private final RecyclerViewPager mViewPager;
+public class RecyclerPagerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+    private final RecyclerPager mViewPager;
     RecyclerView.Adapter<VH> mAdapter;
 
 
-    public RecyclerViewPagerAdapter(RecyclerViewPager viewPager, RecyclerView.Adapter<VH> adapter) {
+    public RecyclerPagerAdapter(RecyclerPager viewPager, RecyclerView.Adapter<VH> adapter) {
         mAdapter = adapter;
         mViewPager = viewPager;
         if (mAdapter != null)

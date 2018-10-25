@@ -20,26 +20,26 @@ import io.reactivex.subjects.BehaviorSubject;
  *
  * @author Green
  */
-public class RecyclerViewPager extends RecyclerView {
+public class RecyclerPager extends RecyclerView {
 	public static final boolean DEBUG = BuildConfig.DEBUG;
 	
-	private static final String TAG = RecyclerViewPager.class.getSimpleName();
+	private static final String TAG = RecyclerPager.class.getSimpleName();
 	
-	private RecyclerViewPagerAdapter<?> mViewPagerAdapter;
+	private RecyclerPagerAdapter<?> mViewPagerAdapter;
 	private List<OnPageChangedListener> mOnPageChangedListeners;
 	
 	private final BehaviorSubject<Integer> currentItemPositionSubject = BehaviorSubject.createDefault(0);
 	private int oldPosition;
 	
-	public RecyclerViewPager(Context context) {
+	public RecyclerPager(Context context) {
 		this(context, null);
 	}
 	
-	public RecyclerViewPager(Context context, AttributeSet attrs) {
+	public RecyclerPager(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 	
-	public RecyclerViewPager(Context context, AttributeSet attrs, int defStyle) {
+	public RecyclerPager(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		initAttrs(context, attrs, defStyle);
 		
@@ -95,7 +95,7 @@ public class RecyclerViewPager extends RecyclerView {
 	}
 	
 	private void initAttrs(Context context, AttributeSet attrs, int defStyle) {
-		final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RecyclerViewPager, defStyle,
+		final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RecyclerPager, defStyle,
 				0);
 		a.recycle();
 	}
@@ -121,7 +121,7 @@ public class RecyclerViewPager extends RecyclerView {
 		return null;
 	}
 	
-	public RecyclerViewPagerAdapter getWrapperAdapter() {
+	public RecyclerPagerAdapter getWrapperAdapter() {
 		return mViewPagerAdapter;
 	}
 	
@@ -176,10 +176,10 @@ public class RecyclerViewPager extends RecyclerView {
 	
 	@SuppressWarnings("unchecked")
 	@NonNull
-	protected RecyclerViewPagerAdapter ensureRecyclerViewPagerAdapter(Adapter adapter) {
-		return (adapter instanceof RecyclerViewPagerAdapter)
-				? (RecyclerViewPagerAdapter) adapter
-				: new RecyclerViewPagerAdapter(this, adapter);
+	protected RecyclerPagerAdapter ensureRecyclerViewPagerAdapter(Adapter adapter) {
+		return (adapter instanceof RecyclerPagerAdapter)
+				? (RecyclerPagerAdapter) adapter
+				: new RecyclerPagerAdapter(this, adapter);
 		
 	}
 	

@@ -13,7 +13,7 @@ public class TabLayoutSupport {
     private static final String TAG = TabLayoutSupport.class.getSimpleName();
 
     public static void setupWithViewPager(@NonNull TabLayout tabLayout
-            , @NonNull RecyclerViewPager viewPager
+            , @NonNull RecyclerPager viewPager
             , @NonNull ViewPagerTabLayoutAdapter viewPagerTabLayoutAdapter) {
         tabLayout.removeAllTabs();
         int i = 0;
@@ -35,10 +35,10 @@ public class TabLayoutSupport {
     }
 
     public static class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
-        private final RecyclerViewPager mViewPager;
+        private final RecyclerPager mViewPager;
         private final TabLayoutOnPageChangeListener mOnPageChangeListener;
 
-        public ViewPagerOnTabSelectedListener(RecyclerViewPager viewPager, TabLayoutOnPageChangeListener listener) {
+        public ViewPagerOnTabSelectedListener(RecyclerPager viewPager, TabLayoutOnPageChangeListener listener) {
             this.mViewPager = viewPager;
             this.mOnPageChangeListener = listener;
         }
@@ -58,14 +58,14 @@ public class TabLayoutSupport {
 
     public static class TabLayoutOnPageChangeListener
             extends RecyclerView.OnScrollListener
-            implements RecyclerViewPager.OnPageChangedListener {
+            implements RecyclerPager.OnPageChangedListener {
         private final WeakReference<TabLayout> mTabLayoutRef;
-        private final WeakReference<RecyclerViewPager> mViewPagerRef;
+        private final WeakReference<RecyclerPager> mViewPagerRef;
         private int mPositionBeforeScroll;
         private int mPagerLeftBeforeScroll;
         private boolean mPageChangeTabSelectingNow;
 
-        public TabLayoutOnPageChangeListener(TabLayout tabLayout, RecyclerViewPager viewPager) {
+        public TabLayoutOnPageChangeListener(TabLayout tabLayout, RecyclerPager viewPager) {
             Log.d(TAG + ":TabLayoutOnPageChange", "　");
     
             this.mTabLayoutRef = new WeakReference<>(tabLayout);
@@ -78,7 +78,7 @@ public class TabLayoutSupport {
                 mPositionBeforeScroll = -1;
                 mPagerLeftBeforeScroll = 0;
             } else if (mPositionBeforeScroll < 0) {
-                mPositionBeforeScroll = ((RecyclerViewPager) recyclerView).getCurrentPosition();
+                mPositionBeforeScroll = ((RecyclerPager) recyclerView).getCurrentPosition();
                 mPagerLeftBeforeScroll = recyclerView.getPaddingLeft();
             }
         }
@@ -86,7 +86,7 @@ public class TabLayoutSupport {
         @Override
         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
             TabLayout tabLayout = this.mTabLayoutRef.get();
-            final RecyclerViewPager viewPager = (RecyclerViewPager) recyclerView;
+            final RecyclerPager viewPager = (RecyclerPager) recyclerView;
             final int pagerWidth = recyclerView.getWidth()
                     - recyclerView.getPaddingLeft()
                     - recyclerView.getPaddingRight();
