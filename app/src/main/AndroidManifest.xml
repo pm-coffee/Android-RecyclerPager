@@ -18,13 +18,13 @@
             </intent-filter>
         </activity>
         <activity
-          android:name=".widget.SingleFlingPagerActivity" >
+          android:name=".widget.singleflingdemo.SingleFlingPagerActivity" >
         </activity>
         <activity
-          android:name=".widget.VerticalPagerActivity" >
+          android:name=".widget.verticalpagerdemo.VerticalPagerActivity" >
         </activity>
         <activity
-          android:name=".widget.FragmentMaterialDemoActivity"
+          android:name=".widget.fragmentmaterialdemo.FragmentMaterialDemoActivity"
           android:theme="@style/Theme.DesignDemo">
         </activity>
         <activity

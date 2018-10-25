@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.pmcoffee.android.recyclerpagerdemo.widget;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget.fragmentmaterialdemo;
 
 import java.util.ArrayList;
 import java.util.List;

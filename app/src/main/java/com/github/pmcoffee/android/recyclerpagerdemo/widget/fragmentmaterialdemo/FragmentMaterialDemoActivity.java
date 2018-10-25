@@ -1,4 +1,4 @@
-package com.github.pmcoffee.android.recyclerpagerdemo.widget;
+package com.github.pmcoffee.android.recyclerpagerdemo.widget.fragmentmaterialdemo;
 
 import java.util.LinkedHashMap;
 
@@ -8,13 +8,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.github.pmcoffee.android.recyclerpager.FragmentStatePagerAdapter;
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpager.RecyclerViewPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
+import com.github.pmcoffee.android.recyclerpagerdemo.widget.SpacesItemDecoration;
 
 public class FragmentMaterialDemoActivity extends AppCompatActivity {
     protected RecyclerViewPager mRecyclerView;
