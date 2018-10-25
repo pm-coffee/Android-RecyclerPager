@@ -36,7 +36,29 @@
 
 # Usage
 
-yet
+## XML
+
+```xml
+    <com.github.pmcoffee.android.recyclerpager.RecyclerPager
+        android:id="@+id/recyclerPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        />
+```
+
+* Required Attribute and Value
+   * `android:orientation `
+      * `horizontal` or `vertical`
+   * `app:layoutManager="android.support.v7.widget.LinearLayoutManager"`
+
+## TablayoutSupport
+
+```java
+TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter);
+```
+
 
 # Known Issues
 
