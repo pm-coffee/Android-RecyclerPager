@@ -28,7 +28,7 @@
 
     ```groovy
     dependencies {
-        implementation 'com.github.pm-coffee:Android-RecyclerPager:0.0.2'
+        implementation 'com.github.pm-coffee:Android-RecyclerPager:0.1.0'
     }
     ```
 
@@ -51,10 +51,10 @@
       * `horizontal` or `vertical`
    * `app:layoutManager="android.support.v7.widget.LinearLayoutManager"`
 
-## TablayoutSupport
+## TabLayoutSupport
 
 ```java
-TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter);
+TabLayoutSupport.setupWithViewPager(tabLayout, recyclerPager, recyclerPagerAdapter);
 ```
 
 
