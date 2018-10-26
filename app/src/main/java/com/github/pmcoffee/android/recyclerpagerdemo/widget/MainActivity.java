@@ -29,7 +29,6 @@ import android.widget.TextView;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpagerdemo.adapter.GenericRecyclerViewAdapter;
-import com.github.pmcoffee.android.recyclerpagerdemo.widget.fragmentmaterialdemo.FragmentMaterialDemoActivity;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.materialdemo.MaterialDemoActivity;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.singleflingdemo.SingleFlingPagerActivity;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.verticalpagerdemo.VerticalPagerActivity;
@@ -61,13 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, VerticalPagerActivity.class));
             }
         });
-        mDemoListAdapter.add(new DemoItem("Material Demo With Fragment") {
-            @Override
-            void onClick() {
-                startActivity(new Intent(MainActivity.this, FragmentMaterialDemoActivity.class));
-            }
-        });
-        mDemoListAdapter.add(new DemoItem("Material Demo Without Fragment (Experimental Implementation)") {
+        mDemoListAdapter.add(new DemoItem("Material Demo") {
             @Override
             void onClick() {
                 startActivity(new Intent(MainActivity.this, MaterialDemoActivity.class));

@@ -24,10 +24,6 @@
           android:name=".widget.verticalpagerdemo.VerticalPagerActivity" >
         </activity>
         <activity
-          android:name=".widget.fragmentmaterialdemo.FragmentMaterialDemoActivity"
-          android:theme="@style/Theme.DesignDemo">
-        </activity>
-        <activity
             android:name=".widget.materialdemo.MaterialDemoActivity"
             android:theme="@style/Theme.DesignDemo">
         </activity>
