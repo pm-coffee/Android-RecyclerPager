@@ -9,8 +9,6 @@
 * This lib is only have the minimum functionality
     * Support TabLayout
     * Support Vertical and Horizontal orientation.
-    * Support Use fragment as recycler item
-    
 # How to import
 
 * Step 1. Add the JitPack repository to your build file
