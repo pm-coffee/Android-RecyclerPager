@@ -7,6 +7,7 @@ import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 
 
 import java.util.ArrayList;
@@ -52,6 +53,7 @@ public class RecyclerPager extends RecyclerView {
 		currentItemPositionSubject.subscribe(new DisposableObserver<Integer>() {
 			@Override
 			public void onNext(Integer position) {
+				Log.d(TAG, "currentItemPositionSubject onNext = " + position);
 				if (position >= 0 && position < getItemCount()) {
 					if (mOnPageChangedListeners != null) {
 						for (OnPageChangedListener onPageChangedListener : mOnPageChangedListeners) {
@@ -77,6 +79,10 @@ public class RecyclerPager extends RecyclerView {
 		
 		
 		addOnScrollListener(new OnScrollListener() {
+			/**
+			 * <li>not called when use scrollToPosition().</li>
+			 * <li>called when swipe by user</li>
+			 */
 			@Override
 			public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
 				super.onScrollStateChanged(recyclerView, newState);
@@ -86,10 +92,16 @@ public class RecyclerPager extends RecyclerView {
 				}
 			}
 			
+			/**
+			 * <li>called when use scrollToPosition().</li>
+			 * <li>not called when swipe by user</li>
+			 */
 			@Override
 			public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
 				super.onScrolled(recyclerView, dx, dy);
-				
+				if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_IDLE) {
+					currentItemPositionSubject.onNext(getCurrentPosition());
+				}
 			}
 		});
 	}

@@ -131,10 +131,9 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	}
 	
 	private void setupTabLayout(){
-		TabLayout tabLayout = findViewById(R.id.tabLayout);
-		tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+		binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		
-		TabLayoutSupport.setupWithViewPager(tabLayout, binding.recyclerPager, new TabLayoutSupport.ViewPagerTabLayoutAdapter() {
+		TabLayoutSupport.setupWithViewPager(binding.tabLayout, binding.recyclerPager, new TabLayoutSupport.ViewPagerTabLayoutAdapter() {
 			@Override
 			public String getPageTitle(int position) {
 				return ""+position;
@@ -150,7 +149,6 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.demo_single_fling_pager);
 		
 		setup();
 		
