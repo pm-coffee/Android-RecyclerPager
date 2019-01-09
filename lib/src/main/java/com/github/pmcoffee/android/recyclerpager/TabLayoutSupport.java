@@ -3,7 +3,6 @@ package com.github.pmcoffee.android.recyclerpager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
@@ -66,7 +65,7 @@ public class TabLayoutSupport {
         private boolean mPageChangeTabSelectingNow;
 
         public TabLayoutOnPageChangeListener(TabLayout tabLayout, RecyclerPager viewPager) {
-            Log.d(TAG + ":TabLayoutOnPageChange", "　");
+            RecyclerPagerLogger.d(TAG + ":TabLayoutOnPageChange", "　");
     
             this.mTabLayoutRef = new WeakReference<>(tabLayout);
             this.mViewPagerRef = new WeakReference<>(viewPager);
@@ -118,7 +117,7 @@ public class TabLayoutSupport {
 
         @Override
         public void OnPageChanged(int oldPosition, int newPosition) {
-            Log.d(TAG + ":OnPageChanged()", "oldPosition:" + oldPosition + " newPosition:" + newPosition);
+            RecyclerPagerLogger.d(TAG + ":OnPageChanged()", "oldPosition:" + oldPosition + " newPosition:" + newPosition);
     
             if (mViewPagerRef.get() == null) {
                 return;

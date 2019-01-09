@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.github.pmcoffee.android.recyclerpager.RecyclerPagerLogger;
 import com.squareup.picasso.Picasso;
 
 import java.util.concurrent.Executors;
@@ -37,6 +38,8 @@ public class MyApp extends Application {
 //		picasso.setLoggingEnabled(BuildConfig.DEBUG);
 		picasso.setIndicatorsEnabled(BuildConfig.DEBUG);
 		Picasso.setSingletonInstance(picasso);
+		
+		RecyclerPagerLogger.setEnableLog(BuildConfig.DEBUG);
 		
 	}
 	

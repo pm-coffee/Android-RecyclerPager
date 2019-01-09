@@ -6,8 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
 
 
 import java.util.ArrayList;
@@ -22,7 +20,6 @@ import io.reactivex.subjects.BehaviorSubject;
  * @author Green
  */
 public class RecyclerPager extends RecyclerView {
-	public static final boolean DEBUG = BuildConfig.DEBUG;
 	
 	private static final String TAG = RecyclerPager.class.getSimpleName();
 	
@@ -53,7 +50,7 @@ public class RecyclerPager extends RecyclerView {
 		currentItemPositionSubject.subscribe(new DisposableObserver<Integer>() {
 			@Override
 			public void onNext(Integer position) {
-				Log.d(TAG, "currentItemPositionSubject onNext = " + position);
+				RecyclerPagerLogger.d(TAG, "currentItemPositionSubject onNext = " + position);
 				if (position >= 0 && position < getItemCount()) {
 					if (mOnPageChangedListeners != null) {
 						for (OnPageChangedListener onPageChangedListener : mOnPageChangedListeners) {
@@ -139,9 +136,7 @@ public class RecyclerPager extends RecyclerView {
 	
 	@Override
 	public void scrollToPosition(int position) {
-		if (DEBUG) {
-			Log.d(TAG + ":scrollToPosition", "scrollToPosition:" + position);
-		}
+		RecyclerPagerLogger.d(TAG + ":scrollToPosition", "scrollToPosition:" + position);
 		super.scrollToPosition(position);
 	}
 	
@@ -162,6 +157,7 @@ public class RecyclerPager extends RecyclerView {
 		if (curPosition < 0) {
 			curPosition = currentItemPositionSubject.hasValue()? currentItemPositionSubject.getValue():0;
 		}
+		RecyclerPagerLogger.d(TAG, "getCurrentPosition() pos = " + curPosition);
 		return curPosition;
 	}
 	
@@ -170,6 +166,7 @@ public class RecyclerPager extends RecyclerView {
 			mOnPageChangedListeners = new ArrayList<>();
 		}
 		mOnPageChangedListeners.add(listener);
+		RecyclerPagerLogger.d(TAG, "mOnPageChangedListeners.size = " + mOnPageChangedListeners.size());
 	}
 	
 	@SuppressWarnings("unused")
@@ -177,6 +174,7 @@ public class RecyclerPager extends RecyclerView {
 		if (mOnPageChangedListeners != null) {
 			mOnPageChangedListeners.remove(listener);
 		}
+		RecyclerPagerLogger.d(TAG, "mOnPageChangedListeners.size = " + mOnPageChangedListeners.size());
 	}
 	
 	@SuppressWarnings("unused")
@@ -184,6 +182,7 @@ public class RecyclerPager extends RecyclerView {
 		if (mOnPageChangedListeners != null) {
 			mOnPageChangedListeners.clear();
 		}
+		RecyclerPagerLogger.d(TAG, "mOnPageChangedListeners.size = " + mOnPageChangedListeners.size());
 	}
 	
 	@SuppressWarnings("unchecked")
