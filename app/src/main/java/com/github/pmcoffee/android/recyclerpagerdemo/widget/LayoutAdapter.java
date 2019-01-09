@@ -27,10 +27,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 
 
-public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleViewHolder> {
+public class LayoutAdapter
+        extends RecyclerView.Adapter<LayoutAdapter.SimpleViewHolder>
+        implements TabLayoutSupport.TabLayoutAdapter {
     private static final int DEFAULT_ITEM_COUNT = 100;
 
     private final Context mContext;
@@ -86,7 +89,12 @@ public class LayoutAdapter extends RecyclerView.Adapter<LayoutAdapter.SimpleView
         itemView.setOnClickListener(v -> Toast.makeText(mContext, "", Toast.LENGTH_SHORT).show());
         final int itemId = mItems.get(position);
     }
-
+    
+    @Override
+    public String getPageTitle(int position) {
+        return ""+position;
+    }
+    
     @Override
     public int getItemCount() {
         return mItems.size();

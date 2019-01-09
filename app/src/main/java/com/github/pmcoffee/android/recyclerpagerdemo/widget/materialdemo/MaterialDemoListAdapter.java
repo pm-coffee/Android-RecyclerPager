@@ -15,7 +15,7 @@ import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 
 
 public class MaterialDemoListAdapter extends ListAdapter<PagerItemViewModel, MaterialDemoListAdapter.ViewHolder>
-		implements TabLayoutSupport.ViewPagerTabLayoutAdapter{
+		implements TabLayoutSupport.TabLayoutAdapter {
 	
 	private static final String TAG = MaterialDemoListAdapter.class.getSimpleName();
 	private final LifecycleOwner lifecycleOwner;

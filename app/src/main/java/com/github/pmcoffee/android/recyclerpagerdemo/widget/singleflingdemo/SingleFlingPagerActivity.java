@@ -3,7 +3,6 @@ package com.github.pmcoffee.android.recyclerpagerdemo.widget.singleflingdemo;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.databinding.Observable;
-import android.databinding.ObservableField;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
-import com.github.pmcoffee.android.recyclerpager.RecyclerPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 import com.github.pmcoffee.android.recyclerpagerdemo.databinding.DemoSingleFlingPagerBinding;
 import com.github.pmcoffee.android.recyclerpagerdemo.widget.LayoutAdapter;
@@ -23,6 +21,8 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	
 	private DemoSingleFlingPagerBinding binding;
 	private SingleFlingPagerViewModel viewModel;
+	
+	private LayoutAdapter recyclerPagerAdapter;
 	
 	private void setup(){
 		setupBinding();
@@ -59,7 +59,8 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	}
 	
 	private void setupRecyclerPager() {
-		binding.recyclerPager.setAdapter(new LayoutAdapter(this, binding.recyclerPager));
+		recyclerPagerAdapter = new LayoutAdapter(this, binding.recyclerPager);
+		binding.recyclerPager.setAdapter(recyclerPagerAdapter);
 		binding.recyclerPager.setHasFixedSize(true);
 		binding.recyclerPager.setLongClickable(true);
 		binding.recyclerPager.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -133,17 +134,7 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	private void setupTabLayout(){
 		binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		
-		TabLayoutSupport.setupWithViewPager(binding.tabLayout, binding.recyclerPager, new TabLayoutSupport.ViewPagerTabLayoutAdapter() {
-			@Override
-			public String getPageTitle(int position) {
-				return ""+position;
-			}
-			
-			@Override
-			public int getItemCount() {
-				return binding.recyclerPager.getWrapperAdapter().getItemCount();
-			}
-		});
+		TabLayoutSupport.setupWithViewPager(binding.tabLayout, binding.recyclerPager, recyclerPagerAdapter);
 	}
 	
 	@Override
@@ -155,5 +146,10 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 		
 	}
 	
-	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
+		TabLayoutSupport.updateTab(binding.tabLayout, recyclerPagerAdapter);
+	}
 }

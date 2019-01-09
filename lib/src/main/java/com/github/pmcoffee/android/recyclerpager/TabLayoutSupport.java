@@ -11,23 +11,39 @@ public class TabLayoutSupport {
     
     private static final String TAG = TabLayoutSupport.class.getSimpleName();
 
-    public static void setupWithViewPager(@NonNull TabLayout tabLayout
-            , @NonNull RecyclerPager viewPager
-            , @NonNull ViewPagerTabLayoutAdapter viewPagerTabLayoutAdapter) {
-        tabLayout.removeAllTabs();
-        int i = 0;
-
-        for (int count = viewPagerTabLayoutAdapter.getItemCount(); i < count; ++i) {
-            tabLayout.addTab(tabLayout.newTab().setText(viewPagerTabLayoutAdapter.getPageTitle(i)));
-        }
+    public static void setupWithViewPager(
+            @NonNull TabLayout tabLayout,
+            @NonNull RecyclerPager recyclerPager,
+            @NonNull TabLayoutAdapter tabLayoutAdapter) {
+    
+        updateTab(tabLayout, tabLayoutAdapter);
+        
         final TabLayoutOnPageChangeListener listener
-                = new TabLayoutOnPageChangeListener(tabLayout, viewPager);
-        viewPager.addOnScrollListener(listener);
-        viewPager.addOnPageChangedListener(listener);
-        tabLayout.addOnTabSelectedListener(new ViewPagerOnTabSelectedListener(viewPager, listener));
+                = new TabLayoutOnPageChangeListener(tabLayout, recyclerPager);
+        recyclerPager.addOnScrollListener(listener);
+        recyclerPager.addOnPageChangedListener(listener);
+        tabLayout.addOnTabSelectedListener(new ViewPagerOnTabSelectedListener(recyclerPager, listener));
+    }
+    
+    public static void updateTab(@NonNull TabLayout tabLayout, @NonNull TabLayoutAdapter tabLayoutAdapter){
+        if(tabLayout.getTabCount() > tabLayoutAdapter.getItemCount()){
+            while(tabLayout.getTabCount() != tabLayoutAdapter.getItemCount()){
+                tabLayout.removeTabAt(tabLayout.getTabCount() - 1);
+            }
+        }
+        
+        final int count = tabLayoutAdapter.getItemCount();
+        for (int i = 0; i < count; i++) {
+            RecyclerPagerLogger.d(TAG, "updateTab() i = " + i);
+            if (tabLayout.getTabCount() > i) {
+                tabLayout.getTabAt(i).setText(tabLayoutAdapter.getPageTitle(i));
+            }else{
+                tabLayout.addTab(tabLayout.newTab().setText(tabLayoutAdapter.getPageTitle(i)));
+            }
+        }
     }
 
-    public interface ViewPagerTabLayoutAdapter {
+    public interface TabLayoutAdapter {
         String getPageTitle(int position);
 
         int getItemCount();
