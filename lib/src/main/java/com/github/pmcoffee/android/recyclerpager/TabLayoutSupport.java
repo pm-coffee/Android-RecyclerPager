@@ -26,11 +26,13 @@ public class TabLayoutSupport {
     }
     
     public static void updateTab(@NonNull TabLayout tabLayout, @NonNull TabLayoutAdapter tabLayoutAdapter){
+        RecyclerPagerLogger.d(TAG, "updateTab() before tabLayout.getTabCount() = " + tabLayout.getTabCount() + " tabLayoutAdapter.getItemCount() = " + tabLayoutAdapter.getItemCount());
         if(tabLayout.getTabCount() > tabLayoutAdapter.getItemCount()){
             while(tabLayout.getTabCount() != tabLayoutAdapter.getItemCount()){
                 tabLayout.removeTabAt(tabLayout.getTabCount() - 1);
             }
         }
+        RecyclerPagerLogger.d(TAG, "updateTab() after tabLayout.getTabCount() = " + tabLayout.getTabCount() + " tabLayoutAdapter.getItemCount() = " + tabLayoutAdapter.getItemCount());
         
         final int count = tabLayoutAdapter.getItemCount();
         for (int i = 0; i < count; i++) {
@@ -76,7 +78,7 @@ public class TabLayoutSupport {
             implements RecyclerPager.OnPageChangedListener {
         private final WeakReference<TabLayout> mTabLayoutRef;
         private final WeakReference<RecyclerPager> mViewPagerRef;
-        private int mPositionBeforeScroll;
+        private int beforePosition;
         private int mPagerLeftBeforeScroll;
         private boolean mPageChangeTabSelectingNow;
 
@@ -90,43 +92,59 @@ public class TabLayoutSupport {
         @Override
         public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
             if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                mPositionBeforeScroll = -1;
+                RecyclerPagerLogger.d(TAG, "onScrollStateChanged SCROLL_STATE_IDLE");
+                beforePosition = -1;
                 mPagerLeftBeforeScroll = 0;
-            } else if (mPositionBeforeScroll < 0) {
-                mPositionBeforeScroll = ((RecyclerPager) recyclerView).getCurrentPosition();
+            } else if (beforePosition < 0) {
+                beforePosition = ((RecyclerPager) recyclerView).getCurrentPosition();
                 mPagerLeftBeforeScroll = recyclerView.getPaddingLeft();
             }
+            RecyclerPagerLogger.d(TAG, "beforePosition = " + beforePosition);
         }
 
         @Override
         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+            if(recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_IDLE){
+                RecyclerPagerLogger.d(TAG, "onScrolled SCROLL_STATE_IDLE");
+            }
             TabLayout tabLayout = this.mTabLayoutRef.get();
-            final RecyclerPager viewPager = (RecyclerPager) recyclerView;
+            final RecyclerPager recyclerPager = (RecyclerPager) recyclerView;
             final int pagerWidth = recyclerView.getWidth()
                     - recyclerView.getPaddingLeft()
                     - recyclerView.getPaddingRight();
-            final View centerXChild = ViewUtils.getCenterXChild(viewPager);
+            final View centerXChild = ViewUtils.getCenterXChild(recyclerPager);
             if (centerXChild == null) {
                 return;
             }
-            int centerChildPosition = viewPager.getChildAdapterPosition(centerXChild);
-            float offset = mPagerLeftBeforeScroll - centerXChild.getLeft()
-                    + pagerWidth * (centerChildPosition - mPositionBeforeScroll);
-            final float positionOffset = offset * 1f / pagerWidth;
+//            int centerChildPosition = recyclerPager.getChildAdapterPosition(centerXChild);
+            int centerChildPosition = recyclerPager.getCurrentPosition();
+            RecyclerPagerLogger.d(TAG, "onScrolled centerChildPosition = " + centerChildPosition);
+            float offset = mPagerLeftBeforeScroll - centerXChild.getLeft() + pagerWidth * (centerChildPosition - beforePosition);
+            float positionOffset = offset * 1f / pagerWidth;
+            if(recyclerPager.getAdapter() == null) {
+                return;
+            }
             if (tabLayout != null) {
                 if (positionOffset < 0) {
                     try {
-                        tabLayout.setScrollPosition(mPositionBeforeScroll
-                                + (int) Math.floor(positionOffset),
-                            positionOffset - (int) Math.floor(positionOffset),
-                            false);
+                        int position = beforePosition + (int) Math.floor(positionOffset);
+                        positionOffset = positionOffset - (int) Math.floor(positionOffset);
+                        if(position >= 0) {
+                            tabLayout.setScrollPosition(position,
+                                    positionOffset,
+                                    false);
+                        }
                     } catch (Throwable e) {
                         e.printStackTrace();
                     }
                 } else {
-                    tabLayout.setScrollPosition(mPositionBeforeScroll + (int) (positionOffset),
-                            positionOffset - (int) (positionOffset),
-                            false);
+                    int position = beforePosition + (int) (positionOffset);
+                    positionOffset = positionOffset - (int) (positionOffset);
+                    if(position >= 0) {
+                        tabLayout.setScrollPosition(position,
+                                positionOffset,
+                                false);
+                    }
                 }
             }
         }

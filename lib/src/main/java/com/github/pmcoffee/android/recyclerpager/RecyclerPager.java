@@ -24,7 +24,7 @@ public class RecyclerPager extends RecyclerView {
 	private static final String TAG = RecyclerPager.class.getSimpleName();
 	
 	private RecyclerPagerAdapter<?> mViewPagerAdapter;
-	private List<OnPageChangedListener> mOnPageChangedListeners;
+	private final List<OnPageChangedListener> mOnPageChangedListenerList = new ArrayList<>();
 	
 	private final BehaviorSubject<Integer> currentItemPositionSubject = BehaviorSubject.createDefault(0);
 	private int oldPosition;
@@ -52,8 +52,8 @@ public class RecyclerPager extends RecyclerView {
 			public void onNext(Integer position) {
 				RecyclerPagerLogger.d(TAG, "currentItemPositionSubject onNext = " + position);
 				if (position >= 0 && position < getItemCount()) {
-					if (mOnPageChangedListeners != null) {
-						for (OnPageChangedListener onPageChangedListener : mOnPageChangedListeners) {
+					if (mOnPageChangedListenerList != null) {
+						for (OnPageChangedListener onPageChangedListener : mOnPageChangedListenerList) {
 							if (onPageChangedListener != null) {
 								onPageChangedListener.OnPageChanged(oldPosition, position);
 							}
@@ -162,27 +162,20 @@ public class RecyclerPager extends RecyclerView {
 	}
 	
 	public void addOnPageChangedListener(@NonNull OnPageChangedListener listener) {
-		if (mOnPageChangedListeners == null) {
-			mOnPageChangedListeners = new ArrayList<>();
-		}
-		mOnPageChangedListeners.add(listener);
-		RecyclerPagerLogger.d(TAG, "mOnPageChangedListeners.size = " + mOnPageChangedListeners.size());
+		mOnPageChangedListenerList.add(listener);
+		RecyclerPagerLogger.d(TAG, "mOnPageChangedListenerList.size = " + mOnPageChangedListenerList.size());
 	}
 	
 	@SuppressWarnings("unused")
 	public void removeOnPageChangedListener(@NonNull OnPageChangedListener listener) {
-		if (mOnPageChangedListeners != null) {
-			mOnPageChangedListeners.remove(listener);
-		}
-		RecyclerPagerLogger.d(TAG, "mOnPageChangedListeners.size = " + mOnPageChangedListeners.size());
+		mOnPageChangedListenerList.remove(listener);
+		RecyclerPagerLogger.d(TAG, "mOnPageChangedListenerList.size = " + mOnPageChangedListenerList.size());
 	}
 	
 	@SuppressWarnings("unused")
 	public void clearOnPageChangedListeners() {
-		if (mOnPageChangedListeners != null) {
-			mOnPageChangedListeners.clear();
-		}
-		RecyclerPagerLogger.d(TAG, "mOnPageChangedListeners.size = " + mOnPageChangedListeners.size());
+		mOnPageChangedListenerList.clear();
+		RecyclerPagerLogger.d(TAG, "mOnPageChangedListenerList.size = " + mOnPageChangedListenerList.size());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -204,5 +197,16 @@ public class RecyclerPager extends RecyclerView {
 		void OnPageChanged(int oldPosition, int newPosition);
 	}
 	
+	public void onItemSizeChanged(){
+		Adapter adapter = getAdapter();
+		if(adapter != null) {
+			if(adapter.getItemCount() == 0){
+				currentItemPositionSubject.onNext(0);
+			}else if (currentItemPositionSubject.hasValue()
+					&& currentItemPositionSubject.getValue() > adapter.getItemCount()) {
+				currentItemPositionSubject.onNext(adapter.getItemCount() - 1);
+			}
+		}
+	}
 	
 }

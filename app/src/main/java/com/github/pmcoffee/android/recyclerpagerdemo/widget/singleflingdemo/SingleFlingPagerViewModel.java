@@ -1,10 +1,23 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget.singleflingdemo;
 
 import android.arch.lifecycle.ViewModel;
+import android.databinding.Observable;
 import android.databinding.ObservableField;
 
 public class SingleFlingPagerViewModel extends ViewModel {
 	
 	public ObservableField<String> pageObs = new ObservableField<>("0");
+	public ObservableField<String> tabSizeObs = new ObservableField<>("0");
 	
+	
+	public SingleFlingPagerViewModel() {
+		tabSizeObs.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+			@Override
+			public void onPropertyChanged(Observable sender, int propertyId) {
+				if (Integer.parseInt(pageObs.get()) >= Integer.parseInt(tabSizeObs.get())) {
+					pageObs.set((Integer.parseInt(tabSizeObs.get()) - 1) + "");
+				}
+			}
+		});
+	}
 }

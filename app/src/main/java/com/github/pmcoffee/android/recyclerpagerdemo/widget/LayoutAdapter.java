@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.pmcoffee.android.recyclerpager.RecyclerPager;
 import com.github.pmcoffee.android.recyclerpager.TabLayoutSupport;
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 
@@ -37,10 +39,10 @@ public class LayoutAdapter
     private static final int DEFAULT_ITEM_COUNT = 100;
 
     private final Context mContext;
-    private final RecyclerView mRecyclerView;
+    private final RecyclerPager recyclerPager;
     private final List<Integer> mItems;
     private int mCurrentItemId = 0;
-
+    
     public static class SimpleViewHolder extends RecyclerView.ViewHolder {
         public final TextView title;
 
@@ -50,31 +52,33 @@ public class LayoutAdapter
         }
     }
 
-    public LayoutAdapter(Context context, RecyclerView recyclerView) {
+    public LayoutAdapter(Context context, RecyclerPager recyclerView) {
        this(context, recyclerView, DEFAULT_ITEM_COUNT);
     }
 
-    public LayoutAdapter(Context context, RecyclerView recyclerView, int itemCount) {
+    public LayoutAdapter(Context context, RecyclerPager recyclerView, int itemCount) {
         mContext = context;
+        recyclerPager = recyclerView;
+    
         mItems = new ArrayList<>(itemCount);
         for (int i = 0; i < itemCount; i++) {
             addItem(i);
         }
-
-        mRecyclerView = recyclerView;
     }
 
     public void addItem(int position) {
         final int id = mCurrentItemId++;
         mItems.add(position, id);
         notifyItemInserted(position);
+        recyclerPager.onItemSizeChanged();
     }
 
     public void removeItem(int position) {
         mItems.remove(position);
         notifyItemRemoved(position);
+        recyclerPager.onItemSizeChanged();
     }
-
+    
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(mContext).inflate(R.layout.item, parent, false);
@@ -99,4 +103,5 @@ public class LayoutAdapter
     public int getItemCount() {
         return mItems.size();
     }
+    
 }

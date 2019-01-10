@@ -27,6 +27,7 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	private void setup(){
 		setupBinding();
 		setupEditText();
+		setupButtons();
 		setupRecyclerPager();
 		setupTabLayout();
 	}
@@ -48,9 +49,16 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 				
 				if(viewModel.pageObs.get().equals("")) {
 					viewModel.pageObs.set("0");
-				}else if(binding.recyclerPager.getAdapter() != null &&
-						Integer.parseInt(viewModel.pageObs.get()) > binding.recyclerPager.getAdapter().getItemCount()){
-					viewModel.pageObs.set((binding.recyclerPager.getAdapter().getItemCount() - 1) + "");
+				}else if(Integer.parseInt(viewModel.pageObs.get()) < 0){
+					viewModel.pageObs.set("0");
+					
+				}else if(Integer.parseInt(viewModel.pageObs.get()) >= recyclerPagerAdapter.getItemCount()){
+					if(recyclerPagerAdapter.getItemCount() == 0){
+						viewModel.pageObs.set("0");
+					}else {
+						viewModel.pageObs.set((recyclerPagerAdapter.getItemCount() - 1) + "");
+					}
+					
 				}else{
 					binding.recyclerPager.scrollToPosition(Integer.parseInt(viewModel.pageObs.get()));
 				}
@@ -58,8 +66,25 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 		});
 	}
 	
+	private void setupButtons(){
+		binding.addButton.setOnClickListener(v -> {
+			recyclerPagerAdapter.addItem(recyclerPagerAdapter.getItemCount());
+			viewModel.tabSizeObs.set((recyclerPagerAdapter.getItemCount()-1) + "");
+			TabLayoutSupport.updateTab(binding.tabLayout, recyclerPagerAdapter);
+		});
+		
+		binding.delButton.setOnClickListener(v -> {
+			if(recyclerPagerAdapter.getItemCount() > 0) {
+				recyclerPagerAdapter.removeItem(recyclerPagerAdapter.getItemCount() - 1);
+			}
+			viewModel.tabSizeObs.set((recyclerPagerAdapter.getItemCount()-1) + "");
+			TabLayoutSupport.updateTab(binding.tabLayout, recyclerPagerAdapter);
+		});
+	}
+	
 	private void setupRecyclerPager() {
-		recyclerPagerAdapter = new LayoutAdapter(this, binding.recyclerPager);
+		recyclerPagerAdapter = new LayoutAdapter(this, binding.recyclerPager, 5);
+		viewModel.tabSizeObs.set((recyclerPagerAdapter.getItemCount()-1) + "");
 		binding.recyclerPager.setAdapter(recyclerPagerAdapter);
 		binding.recyclerPager.setHasFixedSize(true);
 		binding.recyclerPager.setLongClickable(true);
@@ -72,6 +97,7 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 			@Override
 			public void onScrolled(RecyclerView recyclerView, int i, int i2) {
 				int childCount = binding.recyclerPager.getChildCount();
+				if(childCount == 0) return;
 				int width = binding.recyclerPager.getChildAt(0).getWidth();
 				int padding = (binding.recyclerPager.getWidth() - width) / 2;
 				
