@@ -70,7 +70,7 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 		binding.addButton.setOnClickListener(v -> {
 			recyclerPagerAdapter.addItem(recyclerPagerAdapter.getItemCount());
 			viewModel.tabSizeObs.set((recyclerPagerAdapter.getItemCount()-1) + "");
-			TabLayoutSupport.updateTab(binding.tabLayout, recyclerPagerAdapter);
+			TabLayoutSupport.updateTabs(binding.tabLayout, recyclerPagerAdapter, null);
 		});
 		
 		binding.delButton.setOnClickListener(v -> {
@@ -78,7 +78,7 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 				recyclerPagerAdapter.removeItem(recyclerPagerAdapter.getItemCount() - 1);
 			}
 			viewModel.tabSizeObs.set((recyclerPagerAdapter.getItemCount()-1) + "");
-			TabLayoutSupport.updateTab(binding.tabLayout, recyclerPagerAdapter);
+			TabLayoutSupport.updateTabs(binding.tabLayout, recyclerPagerAdapter, null);
 		});
 	}
 	
@@ -160,7 +160,7 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	private void setupTabLayout(){
 		binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		
-		TabLayoutSupport.setupWithViewPager(binding.tabLayout, binding.recyclerPager, recyclerPagerAdapter);
+		TabLayoutSupport.setupWithViewPager(binding.tabLayout, binding.recyclerPager, recyclerPagerAdapter, null);
 	}
 	
 	@Override
@@ -176,6 +176,6 @@ public class SingleFlingPagerActivity extends AppCompatActivity {
 	protected void onResume() {
 		super.onResume();
 		
-		TabLayoutSupport.updateTab(binding.tabLayout, recyclerPagerAdapter);
+		TabLayoutSupport.updateTabs(binding.tabLayout, recyclerPagerAdapter, null);
 	}
 }

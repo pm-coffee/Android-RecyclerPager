@@ -1,6 +1,7 @@
 package com.github.pmcoffee.android.recyclerpager;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,9 +15,10 @@ public class TabLayoutSupport {
     public static void setupWithViewPager(
             @NonNull TabLayout tabLayout,
             @NonNull RecyclerPager recyclerPager,
-            @NonNull TabLayoutAdapter tabLayoutAdapter) {
+            @NonNull TabLayoutAdapter tabLayoutAdapter,
+            @Nullable UpdateTabsForCustomViewProcess process) {
     
-        updateTab(tabLayout, tabLayoutAdapter);
+        updateTabs(tabLayout, tabLayoutAdapter, process);
         
         final TabLayoutOnPageChangeListener listener
                 = new TabLayoutOnPageChangeListener(tabLayout, recyclerPager);
@@ -25,7 +27,7 @@ public class TabLayoutSupport {
         tabLayout.addOnTabSelectedListener(new ViewPagerOnTabSelectedListener(recyclerPager, listener));
     }
     
-    public static void updateTab(@NonNull TabLayout tabLayout, @NonNull TabLayoutAdapter tabLayoutAdapter){
+    public static void updateTabs(@NonNull TabLayout tabLayout, @NonNull TabLayoutAdapter tabLayoutAdapter, @Nullable UpdateTabsForCustomViewProcess process){
         RecyclerPagerLogger.d(TAG, "updateTab() before tabLayout.getTabCount() = " + tabLayout.getTabCount() + " tabLayoutAdapter.getItemCount() = " + tabLayoutAdapter.getItemCount());
         if(tabLayout.getTabCount() > tabLayoutAdapter.getItemCount()){
             while(tabLayout.getTabCount() != tabLayoutAdapter.getItemCount()){
@@ -39,8 +41,15 @@ public class TabLayoutSupport {
             RecyclerPagerLogger.d(TAG, "updateTab() i = " + i);
             if (tabLayout.getTabCount() > i) {
                 tabLayout.getTabAt(i).setText(tabLayoutAdapter.getPageTitle(i));
+                if(process != null) {
+                    process.updateTab(tabLayout.getTabAt(i));
+                }
             }else{
-                tabLayout.addTab(tabLayout.newTab().setText(tabLayoutAdapter.getPageTitle(i)));
+                TabLayout.Tab tab = tabLayout.newTab().setText(tabLayoutAdapter.getPageTitle(i));
+                tabLayout.addTab(tab);
+                if(process != null) {
+                    process.updateTab(tab);
+                }
             }
         }
     }
@@ -49,6 +58,10 @@ public class TabLayoutSupport {
         String getPageTitle(int position);
 
         int getItemCount();
+    }
+    
+    public interface UpdateTabsForCustomViewProcess{
+        void updateTab(TabLayout.Tab tab);
     }
 
     public static class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {

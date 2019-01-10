@@ -34,7 +34,7 @@ public class MaterialDemoActivity extends AppCompatActivity {
 	
 	private void initTabLayout() {
 		tabLayout = findViewById(R.id.tabs);
-		TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter);
+		TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter, null);
 	}
 	
 	protected void initViewPager() {
@@ -57,7 +57,7 @@ public class MaterialDemoActivity extends AppCompatActivity {
 		viewModel.itemViewModelListLiveData.observe(this, itemViewData -> {
 			if (itemViewData != null) {
 				((MaterialDemoListAdapter) mRecyclerView.getAdapter()).submitList(itemViewData);
-				TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter);
+				TabLayoutSupport.setupWithViewPager(tabLayout, mRecyclerView, mAdapter, null);
 			}
 			
 		});
