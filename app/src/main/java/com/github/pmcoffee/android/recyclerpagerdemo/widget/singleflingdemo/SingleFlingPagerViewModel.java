@@ -1,8 +1,8 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget.singleflingdemo;
 
-import android.arch.lifecycle.ViewModel;
-import android.databinding.Observable;
-import android.databinding.ObservableField;
+import androidx.lifecycle.ViewModel;
+import androidx.databinding.Observable;
+import androidx.databinding.ObservableField;
 
 public class SingleFlingPagerViewModel extends ViewModel {
 	

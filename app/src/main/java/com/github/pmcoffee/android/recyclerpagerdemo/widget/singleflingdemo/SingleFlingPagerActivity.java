@@ -1,12 +1,12 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget.singleflingdemo;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
-import android.databinding.Observable;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.Observable;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 

@@ -2,7 +2,7 @@ package com.github.pmcoffee.android.recyclerpagerdemo.widget.verticalpagerdemo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;

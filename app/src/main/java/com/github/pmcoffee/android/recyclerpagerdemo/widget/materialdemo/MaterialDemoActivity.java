@@ -1,9 +1,9 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget.materialdemo;
 
-import android.arch.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.BuildConfig;

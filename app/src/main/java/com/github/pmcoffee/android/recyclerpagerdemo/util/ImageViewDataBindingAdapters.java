@@ -1,8 +1,8 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.util;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.net.Uri;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;

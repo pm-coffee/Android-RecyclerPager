@@ -1,9 +1,9 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.R;
 import com.github.pmcoffee.android.recyclerpagerdemo.databinding.TmpBinding;

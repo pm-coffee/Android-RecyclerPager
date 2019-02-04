@@ -1,6 +1,6 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 public interface OnRecyclerViewItemClickListener<VH extends RecyclerView.ViewHolder> {

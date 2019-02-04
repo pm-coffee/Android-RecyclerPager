@@ -1,6 +1,6 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget.materialdemo;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.github.pmcoffee.android.recyclerpagerdemo.model.Cheeses;
 

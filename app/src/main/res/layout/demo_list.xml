@@ -5,11 +5,11 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
   
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/demo_list"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
-      app:layoutManager="android.support.v7.widget.LinearLayoutManager">
-  </android.support.v7.widget.RecyclerView>
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+  </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

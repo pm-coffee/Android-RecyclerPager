@@ -1,11 +1,11 @@
 package com.github.pmcoffee.android.recyclerpagerdemo.widget.materialdemo;
 
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.recyclerview.extensions.ListAdapter;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
